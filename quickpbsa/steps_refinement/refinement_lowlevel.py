@@ -37,7 +37,7 @@ def posterior_single(data, jpos, means, variances, df, i_in=0, lamb=0.1, gamma0=
         # print(np.shape(np.split(data, jpos)))
         # print(np.shape(i))
         # print(np.shape(mf))
-        # print(np.shape(i * mf))
+        print(np.shape(i * mf))
 
         sic = sum(
             nphi * np.log(varphi)
