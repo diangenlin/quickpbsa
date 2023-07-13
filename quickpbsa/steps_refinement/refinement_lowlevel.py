@@ -27,6 +27,10 @@ def posterior_single(data, jpos, means, variances, df, i_in=0, lamb=0.1, gamma0=
         K = len(jpos)
         m = sum(map(abs, df))
         stp, ct = np.unique(np.abs(df), return_counts=True)
+
+        print(np.shape(np.split(data, jpos)))
+        print(np.shape(i * mf))
+
         sic = sum(
             nphi * np.log(varphi)
             + np.array(list(map(sum, (np.split(data, jpos) - i * mf - mb) ** 2)))
