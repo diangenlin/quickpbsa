@@ -32,7 +32,8 @@ def posterior_single(data, jpos, means, variances, df, i_in=0, lamb=0.1, gamma0=
         print(np.shape(jpos))
         print(type(data))
         print(type(jpos))
-        
+        print(data)
+        print(jpos)
         print(np.shape(np.split(data, jpos)))
         print(np.shape(i))
         print(np.shape(mf))
