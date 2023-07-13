@@ -28,6 +28,8 @@ def posterior_single(data, jpos, means, variances, df, i_in=0, lamb=0.1, gamma0=
         m = sum(map(abs, df))
         stp, ct = np.unique(np.abs(df), return_counts=True)
 
+        print(np.shape(data))
+        print(np.shape(jpos))
         print(np.shape(np.split(data, jpos)))
         print(np.shape(i))
         print(np.shape(mf))
