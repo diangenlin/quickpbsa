@@ -298,11 +298,16 @@ def add_step(data, jpos, means, variances, steps, lamb=0.1, gamma0=0.5):
                             map(
                                 sum,
                                 (
-                                    np.split(
-                                        data[steploc[I + 1] :],
-                                        jpos[I + 1 :] - steploc[I + 1],
+                                    np.array(
+                                        np.split(
+                                            data[steploc[I + 1] :],
+                                            jpos[I + 1 :] - steploc[I + 1],
+                                        ),
+                                        dtype="object",
                                     )
-                                    - (i_in[I + 1 :] + stp) * mf
+                                    - np.array(
+                                        (i_in[I + 1 :] + stp) * mf, dtype="object"
+                                    )
                                     - mb
                                 )
                                 ** 2,
