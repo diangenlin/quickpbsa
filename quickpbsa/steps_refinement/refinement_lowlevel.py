@@ -261,11 +261,23 @@ def add_step(data, jpos, means, variances, steps, lamb=0.1, gamma0=0.5):
     i_in = np.cumsum(np.hstack((0, steps)))
     steploc = np.hstack((0, jpos, sz))
 
-    print(np.shape(np.split(data, jpos)))
-    print(np.shape(i_in * mf))
+    # print(np.shape(np.split(data, jpos)))
+    # print(np.shape(i_in * mf))
 
     diffar = np.tile(
-        np.array(list(map(sum, (np.split(data, jpos) - i_in * mf - mb) ** 2))),
+        np.array(
+            list(
+                map(
+                    sum,
+                    (
+                        np.array(np.split(data, jpos), dtype="object")
+                        - np.array(i_in * mf, dtype="object")
+                        - mb
+                    )
+                    ** 2,
+                )
+            )
+        ),
         [sz - jpos[1], 1],
     )
     diffar = np.hstack((diffar, np.zeros([sz - jpos[1], 1])))
