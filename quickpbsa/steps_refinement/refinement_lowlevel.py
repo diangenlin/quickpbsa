@@ -53,7 +53,7 @@ def posterior_single(data, jpos, means, variances, df, i_in=0, lamb=0.1, gamma0=
             nphi * np.log(varphi)
             + np.array(
                 list(
-                    map(sum, (list(np.split(data, jpos)) - np.array(i * mf) - mb) ** 2)
+                    map(sum, (np.split(data, jpos) - i * mf - mb) ** 2)
                 )
             )
             / varphi
