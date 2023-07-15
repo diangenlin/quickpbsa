@@ -65,8 +65,6 @@ def listener(Q, crop_index, jsonfile, parameters, logger):
         logmessage = 'trace {:d}, {:d} iterations, runtime {:.2f}s'.format(trace_index, kv_iter, kv_time)
         logger.info('Finished KV ' + logmessage)
     return
-        
-    
 
 
 def kv_file(infile, threshold, maxiter, outfolder=None, norm=1, max_memory=2.0, crop=True, bgframes = 500, num_cores=2):
